@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+    dockerpuppet:
+        ports:
+            - '8140:8140'
+        container_name: dockerpuppet
+        volumes:
+            - ./environment/_data/production:/etc/puppetlabs/code/environments/production/
+        image: 'dockerpuppet:latest'
