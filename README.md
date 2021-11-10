@@ -4,7 +4,7 @@
 This Docker Image creates an Puppetserver in a Container. Unbelievable.
 =======
 
-# Dockerpuppet
+# dockerpuppet
 Dockerpuppet is an open source project that helps you to create a puppet server,
 that manage configurations in a Docker container 📁
 
