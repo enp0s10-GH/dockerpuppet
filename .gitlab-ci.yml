@@ -1,0 +1,12 @@
+---
+stages:
+  - tests
+
+fmt:
+  tags:
+    - vincent.roch
+  image: ubuntu:20.04
+  stage: tests
+  script:
+    - apt update -y && apt upgrade -y; apt install shellcheck; shellcheck install.sh;
+
