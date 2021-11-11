@@ -10,6 +10,8 @@ It's all automatic, so you only need to install docker and an Puppetagent, how t
 Here you see, how to install dockerpuppet on your server\
 **ATTENTION:** please look at our Requirements, else it wont work correctly!
 
+### Puppetserver
+
 Clone the Repository to your Server\
 `
 git clone https://github.com/enforcer-GH/dockerpuppet.git
@@ -26,6 +28,26 @@ Create the Image, Build and start the Docker Container\
 `
 sudo docker-compose up 
 `
+### Puppetagent
+
+```
+wget https://apt.puppetlabs.com/puppet-release-focal.deb
+sudo dpkg -i puppet-release-focal.deb
+sudo apt-get update 
+sudo apt-get install puppet-agent 
+
+sudo vim /etc/puppetlabs/puppet/puppet.conf
+
+[main]
+certname = puppetagent.example.com
+server = puppetmaster.example.com
+runinterval = 30m
+
+sudo systemctl start puppet
+sudo systemctl enable puppet
+
+sudo systemctl status puppet -> Check if Puppetagent is started
+```
 
 Finished! If you configured the puppetagent correctly and startet the Container, it should work.
 
