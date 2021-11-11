@@ -7,7 +7,9 @@ This Docker Image creates an Puppetserver in a Container. Unbelievable.
 # dockerpuppet
 Dockerpuppet is a OpenSource Project, that creates an Docker Container and installs an puppetserver into this container. 
 It's all automatic, so you only need to install docker and an Puppetagent, how to install an Puppet Agent?.
+**READ THIS** 
 
+` DONT EXECUTE THE install.sh locally! It may destroy your Operating Systems Network configuration `
 ## Installation
 
 Here you see, how to install dockerpuppet on your server\
@@ -23,21 +25,16 @@ Switch to the directory\
 cd dockerpuppet
 `
 
-Edit the install.sh file\
-`
-nano install.sh
-`\
-*You need to read all comments, to understand how it works*
+Edit the `docker-compose.yml` and change `CERTNAME` to your servers certificate name given on your *puppetagent*.
 
-Create the Image and start the Docker Container\
+Create the Image, Build and start the Docker Container\
 `
-sudo docker-compose up -d
+sudo docker-compose up 
 `
 
-Switch in to the Terminal of the Container\
-`
-sudo docker exec -it dockerpuppet:latest /bin/bash
-`
+Finished! If you configured the puppetagent correctly and startet the Container, it should work.
+
+It doesnt work? Re-check your configuration or ask me!
 
     
 ## Requirements
