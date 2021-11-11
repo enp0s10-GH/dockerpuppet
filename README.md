@@ -38,8 +38,10 @@ It doesnt work? Re-check your configuration or ask me!
 
 - Knowledge at Docker
 - Knowledge at Puppet
-- Knowledge in Bash.
 - `Docker` https://docs.docker.com/engine/install
-- That it works properly you need at least 2 servers, once the puppet server,which is set up by this project, and a puppet agent, which uses this server. More Informations at
+**Nice to have**
+- Knowledge in Bash.
+
+That it works properly you need at least 2 servers, once the puppet server,which is set up by this project, and a puppet agent, which uses this server. More Informations at
   https://puppet.com/docs/puppet/5.5/man/agent.html \
   https://puppet.com/docs/
