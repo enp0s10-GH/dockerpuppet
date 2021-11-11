@@ -54,6 +54,6 @@ function setup() {
 if [[ $(handle_host) -eq "1" ]]; then
   setup
 else 
-  echo "Hallo";
+  echo "Something went wrong.";
 fi
 
