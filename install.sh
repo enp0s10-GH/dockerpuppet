@@ -29,6 +29,7 @@ function handle_host() {
     echo '127.0.0.1   localhost puppet' > /etc/hosts
     echo "${ip_address}    ${hostname}" >> /etc/hosts
   done
+  echo 1;
 }
 
 #######################################
@@ -40,17 +41,17 @@ function handle_host() {
 #   Writes 2 paths to .bashrc
 #######################################
 function setup() {
-install puppetserver
-echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
-source /root/.bashrc
-apt-get update -y && apt-get upgrade -y
-rm -rf /etc/puppetlabs/puppetserver/ca
-rm -rf /etc/puppetlabs/puppet/ssl
-/opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names "${SERVERCERT}",puppet
-/opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
+  install puppetserver
+  echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
+  source /root/.bashrc
+  apt-get update -y && apt-get upgrade -y
+  rm -rf /etc/puppetlabs/puppetserver/ca
+  rm -rf /etc/puppetlabs/puppet/ssl
+  /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names "${SERVERCERT}",puppet
+  /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
 }
 
-handle_host
-setup
-
+if [[ handle_host -eq 1 ]]; then
+  setup
+fi
 
