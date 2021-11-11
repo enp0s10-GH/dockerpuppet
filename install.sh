@@ -21,7 +21,7 @@ function install() {
 #######################################
 function handle_host() {
   local ipcfg="$(ifconfig | awk '/inet/{print $2}')"
-  IFS=' '
+  IFS=" "
   read -ra addr <<< "${ipcfg}"
   for ip_address in "${addr[0]}"; do
     hostname=$(cat /etc/hostname)
@@ -29,7 +29,7 @@ function handle_host() {
     echo '127.0.0.1   localhost puppet' > /etc/hosts
     echo "${ip_address}    ${hostname}" >> /etc/hosts
   done
-  echo 1;
+  echo "1";
 }
 
 #######################################
@@ -51,7 +51,9 @@ function setup() {
   /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
 }
 
-if [[ handle_host -eq 1 ]]; then
+if [[ $(handle_host) -eq "1" ]]; then
   setup
+else 
+  echo "Hallo";
 fi
 
