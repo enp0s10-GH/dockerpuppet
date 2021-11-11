@@ -41,7 +41,7 @@ function handle_host() {
 #   Writes 2 paths to .bashrc
 #######################################
 function setup() {
-  local cert = "${SERVERCERT}"
+  local cert="${SERVERCERT}"
   install puppetserver
   echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
   source /root/.bashrc
