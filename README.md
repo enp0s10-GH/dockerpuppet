@@ -6,7 +6,7 @@ This Docker Image creates an Puppetserver in a Container. Unbelievable.
 
 # dockerpuppet
 Dockerpuppet is a OpenSource Project, that creates an Docker Container and installs an puppetserver into this container. 
-It's all automatic, so you only need to install docker. 
+It's all automatic, so you only need to install docker and an Puppetagent, how to install an Puppet Agent?.
 
 ## Installation
 
