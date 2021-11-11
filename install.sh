@@ -2,9 +2,6 @@
 #
 # This Script creates an docker container, and installs an puppetserver the container.
 
-# Puppet command: /opt/puppetlabs/bin/puppet 
-# Puppetserver command: /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver
-
 apt update -y && apt upgrade -y
 ##############################
 # installing some dependencies
@@ -30,9 +27,9 @@ echo "172.17.0.2     ${HOSTNAME}" >> /etc/hosts
 ##############################
 # Installing & configuring puppet
 ##############################
-apt purge puppet -y
-apt autoremove -y
-apt install puppet -y 
+# apt purge puppet -y
+# apt autoremove -y
+# apt install puppet -y 
 ##############################
 # Installing & configuring puppetserver
 ##############################
@@ -40,6 +37,7 @@ apt-get install puppetserver -y
 apt-get update -y && apt-get upgrade -y
 rm -rf /etc/puppetlabs/puppetserver/ca
 rm -rf /etc/puppetlabs/puppet/ssl
+PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin
 /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names puppetserver.hetzner.company,puppet
 /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
 
