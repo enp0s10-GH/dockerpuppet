@@ -3,6 +3,7 @@ services:
     dockerpuppet:
         environment:
             - SERVERCERT=puppetserver.hetzner.company
+            - AUTOSIGN=true
         build: .
         ports:
             - '8140:8140'
