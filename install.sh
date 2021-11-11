@@ -18,6 +18,10 @@ done;
 ##############################
 # Installing & configuring puppetserver
 ##############################
+$server=$SERVERCERT
+echo "________"
+echo $server;
+echo "________"
 apt-get install puppetserver -y
 echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
 source ~/.bashrc
@@ -25,7 +29,7 @@ apt-get update -y && apt-get upgrade -y
 rm -rf /etc/puppetlabs/puppetserver/ca
 rm -rf /etc/puppetlabs/puppet/ssl
 										 # ENTER YOUR PUPPETSERVER NAME
-/opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names puppetserver.hetzner.company,puppet
+/opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names ${SERVERCERT},puppet
 /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
 
 

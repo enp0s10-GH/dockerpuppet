@@ -1,6 +1,8 @@
 version: '3.3'
 services:
     dockerpuppet:
+        environment:
+            - SERVERCERT=puppetserver.hetzner.company
         build: .
         ports:
             - '8140:8140'
