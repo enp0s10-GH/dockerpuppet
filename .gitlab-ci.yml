@@ -8,5 +8,5 @@ fmt:
   image: ubuntu:20.04
   stage: tests
   script:
-    - apt update -y && apt upgrade -y; apt install shellcheck; shellcheck install.sh;
+    - apt update -y && apt upgrade -y; apt install shellcheck -y; shellcheck install.sh;
 
