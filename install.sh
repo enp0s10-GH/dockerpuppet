@@ -75,6 +75,7 @@ function setup() {
   cert="${SERVERCERT}"
   install puppetserver
   echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
+  # shellcheck source=/dev/null
   source /root/.bashrc
   handle_autosign
   apt-get update -y && apt-get upgrade -y
