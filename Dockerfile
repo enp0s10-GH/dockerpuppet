@@ -18,5 +18,5 @@ RUN apt update -y && apt upgrade -y; \
 EXPOSE 8140
 
 # Execute install.sh at start of the container
-ENTRYPOINT ["bash","/install.sh"]
+ENTRYPOINT ["bash","install.sh"]
 
