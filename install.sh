@@ -10,7 +10,7 @@
 #   apt install $1
 #######################################
 function install() {
-  package="${1}"
+  local package="${1}"
   apt install "${package}" -y
 }
 
@@ -24,7 +24,7 @@ function handle_host() {
   IFS=" "
   read -ra addr <<< "${ipcfg}"
   for ip_address in "${addr[0]}"; do
-    hostname=$(cat /etc/hostname)
+    local hostname="$(cat /etc/hostname)"
     echo "${hostname} puppet" > /etc/hostname
     echo '127.0.0.1   localhost puppet' > /etc/hosts
     echo "${ip_address}    ${hostname}" >> /etc/hosts
@@ -41,17 +41,18 @@ function handle_host() {
 #   Writes 2 paths to .bashrc
 #######################################
 function setup() {
+  local cert = "${SERVERCERT}"
   install puppetserver
   echo "export PATH=$PATH:/opt/puppetlabs/bin:/opt/puppetlabs/server/apps/puppetserver/bin" >> ~/.bashrc
   source /root/.bashrc
   apt-get update -y && apt-get upgrade -y
   rm -rf /etc/puppetlabs/puppetserver/ca
   rm -rf /etc/puppetlabs/puppet/ssl
-  /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names "${SERVERCERT}",puppet
+  /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver ca setup --subject-alt-names "${cert}",puppet
   /opt/puppetlabs/server/apps/puppetserver/bin/puppetserver foreground
 }
 
-if [[ $(handle_host) -eq "1" ]]; then
+if [[ "$(handle_host)" -eq "1" ]]; then
   setup
 else 
   echo "Something went wrong.";
