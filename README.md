@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-# Puppetserver-on-Docker
-
-This Docker Image creates an Puppetserver in a Container. Unbelievable.
-=======
 
 # dockerpuppet
 Dockerpuppet is a OpenSource Project, that creates an Docker Container and installs an puppetserver into this container. 
@@ -50,4 +45,3 @@ It doesnt work? Re-check your configuration or ask me!
 That it works properly you need at least 2 servers, once the puppet server,which is set up by this project, and a puppet agent, which uses this server. More Informations at
   https://puppet.com/docs/puppet/5.5/man/agent.html \
   https://puppet.com/docs/
->>>>>>> 69298d9 (Update README.md)
