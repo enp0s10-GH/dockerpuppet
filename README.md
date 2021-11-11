@@ -1,7 +1,7 @@
 
 # dockerpuppet
 Dockerpuppet is a OpenSource Project, that creates an Docker Container and installs an puppetserver into this container. 
-It's all automatic, so you dont need to install something manually. 
+It's all automatic, so you only need to install docker. 
 
 ## Installation
 
