@@ -1,4 +1,4 @@
-
+![Logo](https://i.imgur.com/hj6ygfZ.png)
 # dockerpuppet
 Dockerpuppet is a OpenSource Project, that creates an Docker Container and installs an puppetserver into this container. 
 It's all automatic, so you only need to install docker and an Puppetagent, how to install an Puppet Agent?.
@@ -61,9 +61,14 @@ It doesnt work? Re-check your configuration or ask me!
 - Knowledge at Docker
 - Knowledge at Puppet
 - `Docker` https://docs.docker.com/engine/install
+
 **Nice to have**
 - Knowledge in Bash.
 
 That it works properly you need at least 2 servers, once the puppet server,which is set up by this project, and a puppet agent, which uses this server. More Informations at
   https://puppet.com/docs/puppet/5.5/man/agent.html \
   https://puppet.com/docs/
+
+## Authors
+
+- [@enforcer-GH](https://www.github.com/enforcer-GH)
